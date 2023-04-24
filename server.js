@@ -12,26 +12,18 @@ const memoryDB = []
 
 //START_ASYNC -do not remove notes, place code between correct pair of notes.
 
+bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
+    console.log(hash)
+    bcrypt.compare(myPlaintextPassword, hash,(err, res) => {
+        console.log(res)
+    })
+})
 
 
 //END_ASYNC
 
 //START_SYNC
 
-bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
-    console.log(hash)
-    bcrypt.hash('passw0rd!', saltRounds, (err, hash) => {
-        console.log(hash)
-        bcrypt.compare(someOtherPlaintextPassword, hash,(err, res) => {
-            console.log(res)
-        })
-    })
-    bcrypt.compare(myPlaintextPassword, hash,(err, res) => {
-        console.log(res)
-    })
-
-      
-})
 
 
 //END_SYNC
