@@ -20,10 +20,14 @@ const memoryDB = []
 
 bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
     console.log(hash)
-    
+    bcrypt.hash(someOtherPlaintextPassword, saltRounds, (err, hash) => {
+        console.log(hash)
+        bcrypt.compare(someOtherPlaintextPassword, hash,(err, res) => {
+            console.log(res)
+        })
+    })
     bcrypt.compare(myPlaintextPassword, hash,(err, res) => {
         console.log(res)
-    
     })
 
       
